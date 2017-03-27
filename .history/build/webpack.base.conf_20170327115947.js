@@ -69,8 +69,7 @@ module.exports = {
             'transform-decorators-legacy'
           ],
           presets: ['es2015', 'react', 'stage-0'],//整个项目的presets的配置。presets和plugins：presets设置大部分的通用功能，plugins设置具体的一个功能
-          //比如说，persets：es2015可以转化大部分的es6语法，但是他不转化装饰器语法，这个时候就要单独加一个plugins：transform-decorators-legacy
-          //来转化装饰器。换句话说，如果plugins写了足够多的插件，那么完全可以不用谢presets了，但是这样写的plugins就太多了。
+          //
           env: {//设置在production环境变量（这个环境变量在package.json文件中配置）下的presets的配置（官网中的例子：https://babeljs.io/docs/usage/babelrc/）
             production: {
               presets: ['react-optimize']
