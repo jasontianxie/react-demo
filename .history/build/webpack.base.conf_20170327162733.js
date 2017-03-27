@@ -14,7 +14,6 @@ var commonPath = {
 
 module.exports = {
   commonPath: commonPath,//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
-  //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
   entry: {
     app: path.join(src, 'app.js'),
 
@@ -107,7 +106,6 @@ module.exports = {
     }]
   },
   eslint: {//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用，但是好像并没有用到
-    //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
     formatter: require('eslint-friendly-formatter')
   },
   plugins: [

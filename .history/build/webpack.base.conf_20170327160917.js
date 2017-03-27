@@ -13,8 +13,7 @@ var commonPath = {
 };
 
 module.exports = {
-  commonPath: commonPath,//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
-  //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
+  commonPath: commonPath,
   entry: {
     app: path.join(src, 'app.js'),
 
@@ -106,8 +105,7 @@ module.exports = {
       loader: 'url-loader?limit=10240&name=fonts/[name]-[hash:6].[ext]'
     }]
   },
-  eslint: {//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用，但是好像并没有用到
-    //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
+  eslint: {
     formatter: require('eslint-friendly-formatter')
   },
   plugins: [

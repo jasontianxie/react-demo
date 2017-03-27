@@ -13,8 +13,7 @@ var commonPath = {
 };
 
 module.exports = {
-  commonPath: commonPath,//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
-  //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
+  commonPath: commonPath,
   entry: {
     app: path.join(src, 'app.js'),
 
@@ -63,9 +62,9 @@ module.exports = {
     loaders: [{
       test: /\.(js|jsx)$/,
       loaders: (function() {
-        var _loaders = ['babel?' + JSON.stringify({//这里的loader名称写的babel，但是官网上推荐使用babel-loader（https://github.com/babel/babel-loader页面最后的例子）
-          cacheDirectory: true,//这个是babel-loader的选项（https://github.com/babel/babel-loader中关于options的说明），其他选项都是babel的（https://babeljs.io/docs/usage/api/页面中关于options的说明）
-          plugins: [//社区常用的plugins：https://www.npmjs.com/search?q=babel-plugin&page=1&ranking=optimal
+        var _loaders = ['babel?' + JSON.stringify({
+          cacheDirectory: true,
+          plugins: [
             'transform-runtime',
             'transform-decorators-legacy'
           ],
@@ -75,7 +74,7 @@ module.exports = {
           env: {//设置在production环境变量（这个环境变量在package.json文件中配置,默认使用process.env.BABEL_ENV，
             //如果没有就使用process.env.NODE_ENV）下的presets的配置（官网中的例子：https://babeljs.io/docs/usage/babelrc/）
             production: {
-              presets: ['react-optimize']//优化preset，暂时在npmjs官网上没有找到介绍。
+              presets: ['react-optimize']
             }
           }
         }), 'eslint'];
@@ -106,8 +105,7 @@ module.exports = {
       loader: 'url-loader?limit=10240&name=fonts/[name]-[hash:6].[ext]'
     }]
   },
-  eslint: {//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用，但是好像并没有用到
-    //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
+  eslint: {
     formatter: require('eslint-friendly-formatter')
   },
   plugins: [
