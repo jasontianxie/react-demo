@@ -42,12 +42,11 @@ config.plugins.push(
     filename: 'index.html',
     template: config.commonPath.indexHTML,
     chunksSortMode: 'none'
-  })
-  ,
+  }),
   new BrowserSyncPlugin({
     host: '127.0.0.1',
     port: 9090,
-    proxy: 'http://127.0.0.1:9000/', // 这里的proxy和webpack-dev-server中的proxy作用不一样，这里的proxy表示本地已经有一个server了，所以要代理一下（看有道笔记中关于browser-sync的文章），webpack-dev-server中的proxy是用来解决跨域问题的。
+    proxy: 'http://127.0.0.1:9000/',
     logConnections: false,
     notify: false
   }, {

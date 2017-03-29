@@ -14,7 +14,7 @@ import routes from 'ROUTE' // 在webpack的alias中定义
  * 诸如 PureComponent / shouldComponentUpdate / Immutable.js 等
  * 请自行查阅相关资料
  */
-if (__DEV__ && __WHY_DID_YOU_UPDATE__) { // 在webpack中用DefinePlugin定义的全局变量
+if (__DEV__ && __WHY_DID_YOU_UPDATE__) {//在webpack中用DefinePlugin定义的全局变量
   const { whyDidYouUpdate } = require('why-did-you-update')
   whyDidYouUpdate(React)
 }

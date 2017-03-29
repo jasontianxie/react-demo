@@ -14,7 +14,7 @@ config.devtool = SOURCE_MAP ? 'eval-source-map' : false;
 // add hot-reload related code to entry chunk
 config.entry.app = [
   'eventsource-polyfill',//这个模块网上说是为了热加载时兼容ie，具体功能没有实践过
-  'webpack-hot-middleware/client?reload=true',//这里 reload=true 的意思是，如果碰到不能hot reload的情况，就整页刷新。
+  'webpack-hot-middleware/client?reload=true',
   'webpack/hot/only-dev-server',//官网上好像建议去掉这个选项，并使用reload=true代替https://www.npmjs.com/package/webpack-hot-middleware
   config.entry.app
 ];
@@ -42,12 +42,11 @@ config.plugins.push(
     filename: 'index.html',
     template: config.commonPath.indexHTML,
     chunksSortMode: 'none'
-  })
-  ,
+  }),
   new BrowserSyncPlugin({
     host: '127.0.0.1',
     port: 9090,
-    proxy: 'http://127.0.0.1:9000/', // 这里的proxy和webpack-dev-server中的proxy作用不一样，这里的proxy表示本地已经有一个server了，所以要代理一下（看有道笔记中关于browser-sync的文章），webpack-dev-server中的proxy是用来解决跨域问题的。
+    proxy: 'http://127.0.0.1:9000/',
     logConnections: false,
     notify: false
   }, {
