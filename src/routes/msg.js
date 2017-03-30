@@ -12,7 +12,7 @@ export default {
 
   /* 布局基页 */
   getComponent (nextState, cb) {
-    require.ensure([], (require) => {
+    require.ensure([], (require) => { // require.ensure的三个参数，第一个为数组，表示当前模块的依赖，第二个参数是第一个参数中指定的依赖都加载完成后执行的回调函数，第三个参数是最终生成的js的名字。
       // 立即注入 Reducer
       injectReducer('msg', require('REDUCER/msg/').default)
 
