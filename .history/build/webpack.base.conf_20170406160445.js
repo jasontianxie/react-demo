@@ -13,8 +13,8 @@ var commonPath = {
 };
 
 module.exports = {
-  commonPath: commonPath, // 这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
-  // 因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
+  commonPath: commonPath,//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
+  //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
   entry: {
     app: path.join(src, 'app.js'),
 
@@ -121,7 +121,7 @@ module.exports = {
       // ================================
       __DEV__: env === 'development',
       __PROD__: env === 'production',
-      __COMPONENT_DEVTOOLS__: true, // 是否使用组件形式的 Redux DevTools
+      __COMPONENT_DEVTOOLS__: false, // 是否使用组件形式的 Redux DevTools
       __WHY_DID_YOU_UPDATE__: false // 是否检测不必要的组件重渲染
     })
   ]

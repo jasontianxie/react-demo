@@ -13,8 +13,8 @@ var commonPath = {
 };
 
 module.exports = {
-  commonPath: commonPath, // 这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
-  // 因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
+  commonPath: commonPath,//这个配置并不是webpack中的配置，只是为了在webpack.prod.conf.js和webpack.dev.conf.js中使用
+  //因为webpack.base.conf.js是基础文件，最后会导出，供webpack.prod.conf.js和webpack.dev.conf.js使用
   entry: {
     app: path.join(src, 'app.js'),
 
@@ -63,19 +63,19 @@ module.exports = {
     loaders: [{
       test: /\.(js|jsx)$/,
       loaders: (function() {
-        var _loaders = ['babel?' + JSON.stringify({// 这里的loader名称写的babel，但是官网上推荐使用babel-loader（https://github.com/babel/babel-loader页面最后的例子）
-          cacheDirectory: true, // 这个是babel-loader的选项（https://github.com/babel/babel-loader中关于options的说明），其他选项都是babel的（https://babeljs.io/docs/usage/api/页面中关于options的说明）
-          plugins: [ // 社区常用的plugins：https://www.npmjs.com/search?q=babel-plugin&page=1&ranking=optimal
+        var _loaders = ['babel?' + JSON.stringify({//这里的loader名称写的babel，但是官网上推荐使用babel-loader（https://github.com/babel/babel-loader页面最后的例子）
+          cacheDirectory: true,//这个是babel-loader的选项（https://github.com/babel/babel-loader中关于options的说明），其他选项都是babel的（https://babeljs.io/docs/usage/api/页面中关于options的说明）
+          plugins: [//社区常用的plugins：https://www.npmjs.com/search?q=babel-plugin&page=1&ranking=optimal
             'transform-runtime',
             'transform-decorators-legacy'
           ],
-          presets: ['es2015', 'react', 'stage-0'], // 整个项目的presets的配置。presets和plugins：presets设置大部分的通用功能，plugins设置具体的一个功能
-          // 比如说，persets：es2015可以转化大部分的es6语法，但是他不转化装饰器语法，这个时候就要单独加一个plugins：transform-decorators-legacy
-          // 来转化装饰器。换句话说，如果plugins写了足够多的插件，那么完全可以不用谢presets了，但是这样写的plugins就太多了。
-          env: {// 设置在production环境变量（这个环境变量在package.json文件中配置,默认使用process.env.BABEL_ENV，
-            // 如果没有就使用process.env.NODE_ENV）下的presets的配置（官网中的例子：https://babeljs.io/docs/usage/babelrc/）
+          presets: ['es2015', 'react', 'stage-0'],//整个项目的presets的配置。presets和plugins：presets设置大部分的通用功能，plugins设置具体的一个功能
+          //比如说，persets：es2015可以转化大部分的es6语法，但是他不转化装饰器语法，这个时候就要单独加一个plugins：transform-decorators-legacy
+          //来转化装饰器。换句话说，如果plugins写了足够多的插件，那么完全可以不用谢presets了，但是这样写的plugins就太多了。
+          env: {//设置在production环境变量（这个环境变量在package.json文件中配置,默认使用process.env.BABEL_ENV，
+            //如果没有就使用process.env.NODE_ENV）下的presets的配置（官网中的例子：https://babeljs.io/docs/usage/babelrc/）
             production: {
-              presets: ['react-optimize']// 优化preset，暂时在npmjs官网上没有找到介绍。
+              presets: ['react-optimize']//优化preset，暂时在npmjs官网上没有找到介绍。
             }
           }
         }), 'eslint'];

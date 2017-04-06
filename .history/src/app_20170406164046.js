@@ -36,9 +36,6 @@ ReactDOM.render(
   </Provider>,
   MOUNT_NODE
 )
-/* Router中的children属性是routes属性的一个别名，这里的注释不能写在<Router>后面,否则报错?*/
-
-
 
 // === Webpack 处理 assets，取消注释即可进行测试 === //
 /* 处理 less / sass */
