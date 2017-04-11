@@ -45,10 +45,10 @@ const logout = () => {
       )
   }
 }
-/* default 导出所有 Actions Creator */
+/* default 导出所有 Actions Creator */ // 因为这里的的action是异步操作，使用了redux-thunk中间件，所以，这里的Actions Creater返回的是函数，具体看阮一峰redux教程“中间件”这部分内容。
 export default {
   login, checkLogin, logout
-}
+} // 这里导出的内容在components/Navbar/index.js中引入，用在connect函数中。
 
 // ================================
 // Action handlers for Reducer

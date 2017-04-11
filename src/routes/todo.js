@@ -6,8 +6,8 @@ export default {
 
   /* 布局基页 */
   getComponent (nextState, cb) {
-    require.ensure([], (require) => {
-      cb(null, require('VIEW/todo').default)
+    require.ensure([], (require) => { // 动态路由，按需加载https://github.com/ReactTraining/react-router/blob/v3/docs/guides/DynamicRouting.md
+      cb(null, require('VIEW/todo').default)  // require.ensure的三个参数，第一个为数组，表示当前模块的依赖，第二个参数是第一个参数中指定的依赖都加载完成后执行的回调函数，第三个参数是最终生成的js的名字。
     }, 'todoView')
   },
 

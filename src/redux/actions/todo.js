@@ -34,7 +34,7 @@ export default {
   // 皆因调用 connect 后，react-redux 已经帮我们做了，见：
   // https://github.com/reactjs/react-redux/blob/master/src/utils/wrapActionCreators.js
   addTodo, toggleTodo, delTodo
-}
+} // 这里导出的内容在routes/todo.js中使用
 
 // ================================
 // Action handlers for Reducer

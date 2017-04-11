@@ -11,7 +11,7 @@ export default {
   path: 'msg',
 
   /* 布局基页 */
-  getComponent (nextState, cb) {
+  getComponent (nextState, cb) { // 动态路由，按需加载https://github.com/ReactTraining/react-router/blob/v3/docs/guides/DynamicRouting.md
     require.ensure([], (require) => { // require.ensure的三个参数，第一个为数组，表示当前模块的依赖，第二个参数是第一个参数中指定的依赖都加载完成后执行的回调函数，第三个参数是最终生成的js的名字。
       // 立即注入 Reducer
       injectReducer('msg', require('REDUCER/msg/').default)
@@ -21,7 +21,7 @@ export default {
   },
 
   indexRoute: { // 对应 /msg
-    getComponent (nextState, cb) {
+    getComponent (nextState, cb) { // nextState表示路由的状态信息，具体是什么可以console一下，官网上有一个用法：https://github.com/ReactTraining/react-router/blob/v3/docs/API.md#plainroute
       require.ensure([], (require) => {
         cb(null, connectComponent(require('COMPONENT/Msg/MsgList').default))
       }, 'msgList')
